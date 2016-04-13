@@ -1,0 +1,8 @@
+#N canvas 1 50 537 380 10;
+#X text 10 17 [rails~] simulates the sound of train wheels passing
+the joints between different rail segments.;
+#X obj 14 347 outlet~ rails;
+#X text 115 97 WARNING: Abstraction generates sound as soon as DSP
+in on!;
+#X text 114 55 Dependencies: None;
+#X text 113 73 Creation argument \$1: Speed of train (km/h);

@@ -1,0 +1,20 @@
+#N canvas 68 50 597 697 10;
+#X obj 92 646 outlet~ left;
+#X obj 190 646 outlet~ right;
+#X obj 19 404 inlet~ mono;
+#X text 247 534 g_L = cos( pi * (theta+theta_0) / 4 * theta_0 );
+#X text 247 559 g_R = sin( pi * (theta+theta_0) / 4 * theta_0 );
+#X obj 110 404 inlet theta;
+#X text 22 164 Creation argument \$1: Off-center loudspeaker angle
+theta_0 (specified in degrees \, not radians);
+#X text 20 11 [pan~] pans a mono source signal (first inlet) onto a
+stereo loudspeaker system of arbitrary width. The current phantom source
+angle theta is specified in radians (second inlet) and is translated
+to loudspeaker gain factors by means of a trigonometric (quarter sine)
+panpot law. Negative angles are associated with phantom sources in
+the left half of the stereo base \, while positive angles signify phantom
+sources to the right. Phantom source angles beyond the off-center loudspeaker
+angle theta_0 (\$1) are clipped to plus/minus theta_0..;
+#X text 193 405 Current phantom source angle (radians);
+#X connect 2 0 0 0;
+#X connect 2 0 1 0;

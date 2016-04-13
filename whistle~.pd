@@ -1,0 +1,17 @@
+#N canvas -1 23 479 714 10;
+#X obj 43 315 inlet bang;
+#X obj 86 678 outlet~ whistle;
+#X text 23 134 Creation argument \$1: Fundamental frequency f1 (defaults
+to 750 Hz);
+#X text 15 297 Blow whistle twice;
+#X text 22 25 [whistle~] is a model of a steam whistle based on white
+noise source that is subjected to a series of harmonically tuned bandpass
+filters. The model is based on the observation that a steam whistle
+\, like a flute \, behaves as a pipe open at both ends and therefore
+produces all harmonics f1*N. The whistle blows whenever it receives
+a [bang( at its inlet.;
+#X text 22 178 No dependencies;
+#X obj 97 398 train_whistle_helper~;
+#X obj 24 412 osc~ 750;
+#X connect 0 0 7 0;
+#X connect 7 0 1 0;

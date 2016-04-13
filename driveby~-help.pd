@@ -1,0 +1,93 @@
+#N canvas 810 23 490 508 10;
+#X obj 40 466 dac~;
+#X obj 179 78 bng 25 250 50 0 empty empty go! 28 12 0 14 -262130 -1
+-1;
+#X obj 232 231 change;
+#X obj 232 258 sel 1;
+#X obj 232 204 > -1000;
+#X obj 40 439 *~;
+#X obj 75 439 *~;
+#X obj 105 357 dbtorms;
+#X obj 105 384 sig~;
+#X obj 105 411 lop~ 5;
+#X obj 295 231 change;
+#X obj 295 258 sel 1;
+#X obj 295 204 > 3700;
+#X obj 188 357 loadbang;
+#X obj 169 231 change;
+#X obj 169 258 sel 1;
+#X obj 169 204 > -5000;
+#X text 346 208 Trigger some steam whistles during drive-by, f 10
+;
+#X msg 188 384 \; pd dsp 1 \; master 95;
+#X text 280 471 Florian Hollerweger \, 2015;
+#X obj 104 123 metro 230;
+#X obj 104 150 bell~ 75;
+#X obj 105 327 nbx 3 20 0 100 0 0 empty master master_volume 55 10
+0 14 -262130 -1 -1 95 256;
+#X text 183 138 Assume train travels at 70km/h and takes 7000ms until
+it passes 10m in front of listener. Try [driveby~ 70 7000 100] and
+[driveby~ 120 7000 10] for comparison., f 41;
+#X text 6 7 This demos uses [driveby~] and [rusty~] to simulate the
+drive-by of a steam train \, including not only bells and whistles
+\, but also engine and rail sounds \, Doppler effect \, panning \,
+and distnce-based level attenuation and high-frequency absorption.
+;
+#X text 243 295 Locomotive at 70km/h;
+#X obj 169 295 rusty~ 70;
+#N canvas 1 50 466 603 TODO 0;
+#X text 14 120 TODO: Is it correct to pan /after/ the Doppler? Will
+the virtual source be in the correct position \, such that sound runtime
+is incorporated?;
+#X text 15 177 TODO: Make train speed dynamic via an inlet \, so we
+can imitate train arriving at station.;
+#X text 14 220 TODO: What should happen (e.g. \, with pitch) /after/
+fly-by is 'over'?;
+#X text 14 259 NOTE: If minimum distance is a dynamic parameter \,
+it is better to use [attenuate 10] rather than [attenuate \$3] \, such
+that changing the minimum distance will /not/ re-normalize the patch.
+This makes comparisons of different minimum distances more realistic
+;
+#X text 13 15 TODO: Improve [rails~] model such as to include number
+of carts \, length of each cart \, length of rail segments \, etc.
+\, and couple these parameters to speed of train. What would be really
+cool: Rail sounds are not moving 1:1 with locomotive. Instead \, they
+appear static until train has passed over them \, and then they change
+to a new position at the next segment intersection!;
+#X text 10 347 TODO: [delwrite~]'s \$1 in [doppler~] currently supports
+a maximum of 1000*\$1/340 milliseconds. Check how that translates to
+distances and speeds.;
+#X text 6 408 TODO: Provide FM [bell~] with a \$2 to specify fundamental.
+Learn how to actually maintain inharmonicity level through keeping
+spectral relationships identical for changing carrier frequency.;
+#X text 4 479 TODO: Put [absorb~] on a more physical basis with the
+help of Stokes Law (Farnell 2010 \, p.61);
+#X restore 496 461 pd TODO;
+#X obj 39 177 driveby~ 70 7000 10;
+#X connect 1 0 20 0;
+#X connect 1 0 28 2;
+#X connect 2 0 3 0;
+#X connect 3 0 26 0;
+#X connect 4 0 2 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 1;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 1;
+#X connect 9 0 5 1;
+#X connect 10 0 11 0;
+#X connect 11 0 26 0;
+#X connect 12 0 10 0;
+#X connect 13 0 18 0;
+#X connect 14 0 15 0;
+#X connect 15 0 26 0;
+#X connect 16 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 28 1;
+#X connect 22 0 7 0;
+#X connect 26 0 28 0;
+#X connect 28 0 5 0;
+#X connect 28 1 6 0;
+#X connect 28 2 16 0;
+#X connect 28 2 4 0;
+#X connect 28 2 12 0;

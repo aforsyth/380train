@@ -1,0 +1,10 @@
+#N canvas 1 50 443 452 10;
+#X obj 225 142 inlet bang;
+#X obj 17 412 outlet~ bell;
+#X text 13 86 Creation arguments:;
+#X text 304 142 Trigger bell once;
+#X text 13 106 \$1: Bell volume (0..100 dB);
+#X text 13 62 Dependencies: None.;
+#X text 9 6 [bell~] rings a bell once when a [bang( is received at
+its inlet. It is based on an FM bell model from http://computermusicresource.com/FM.bell.tutorial.html
+;

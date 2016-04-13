@@ -1,0 +1,11 @@
+#N canvas 1 50 450 361 10;
+#X obj 85 143 inlet distance;
+#X text 9 11 [absorb~] simulates the loss of high frequencies for increasing
+distances between a sound source and a listener. It uses a low-pass
+filter whose cutoff frequency decays from 20kHz by 1kHz per 10m of
+distance. This decay rate has been derived empirically rather than
+from actual physics.;
+#X text 21 93 No dependencies or creation arguments;
+#X obj 18 332 outlet~ signal;
+#X obj 18 116 inlet~ signal;
+#X connect 4 0 3 0;

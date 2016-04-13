@@ -1,0 +1,53 @@
+#N canvas 359 23 481 555 10;
+#X obj 14 405 absorb~;
+#X obj 14 523 outlet~ left;
+#X obj 112 523 outlet~ right;
+#X obj 102 331 driveby \$1 \$2 \$3;
+#X text 245 524 Florian Hollerweger \, 2015;
+#X obj 67 304 inlet bang;
+#X obj 211 358 outlet time;
+#X text 294 359 Curent time t;
+#X text 13 225 \$2: Time T until moment of closest approach at t=0
+(ms);
+#X text 12 196 Creation arguments:;
+#X text 8 9 [driveby~] simulates the drive-by of a moving sound source
+\, including a Doppler effect \, geometric attenuation according to
+the inverse distance law \, high-frequency absorption depending on
+distance \, and stereo panning. It is assumed that the sound source
+(first inlet) moves on ground level at a constant speed from left (first
+outlet) to right (second outlet) \, along a straight path which is
+perpendicular to the listener's viewing direction. In addition \, a
+static sound source can be included at the listener's position (second
+inlet). A bang at the third inlet triggers the drive-by.;
+#X obj 14 459 pan~ 60;
+#X text 144 305 Trigger drive-by;
+#X text 73 459 Assume speakers are plus/minus 60 degrees off-center
+;
+#X text 222 331 Get current source position info;
+#X obj 14 277 inlet~ moving;
+#X obj 24 486 inlet~ static;
+#X text 123 487 Static sound source(s), f 25;
+#X text 112 277 Moving sound source(s), f 26;
+#X text 12 210 \$1: Velocity v of moving sound source (km/h);
+#X text 12 239 \$3: Minimum distance d_min between source and listener
+at t=0 (m), f 65;
+#X text 10 157 Dependencies: [doppler~] \, [absorb~] \, [attenuate~]
+\, [pan~] \, [driveby];
+#X obj 14 432 attenuate~ 10;
+#X text 113 432 Assume that source never gets closer than 10m;
+#X obj 14 378 doppler~;
+#X connect 0 0 22 0;
+#X connect 3 0 0 1;
+#X connect 3 0 22 1;
+#X connect 3 0 24 1;
+#X connect 3 1 11 1;
+#X connect 3 2 6 0;
+#X connect 5 0 3 0;
+#X connect 5 0 24 2;
+#X connect 11 0 1 0;
+#X connect 11 1 2 0;
+#X connect 15 0 24 0;
+#X connect 16 0 1 0;
+#X connect 16 0 2 0;
+#X connect 22 0 11 0;
+#X connect 24 0 0 0;

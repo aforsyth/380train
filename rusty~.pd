@@ -1,0 +1,21 @@
+#N canvas 497 397 449 265 10;
+#X obj 84 236 outlet~;
+#X obj 14 182 whistle~;
+#X obj 84 182 steamengine~;
+#X text 246 231 Florian Hollerweger \, 2015;
+#X text 9 82 Dependencies: [whistle~] \, [steamengine~] \, [rails~]
+;
+#X obj 14 155 inlet bang;
+#X text 93 156 Blow whistle;
+#X text 10 6 [rusty~] is a simple model of a steam locomotive \, including
+engine sounds \, a steam whistle that can be sounded by sending a [bang(
+to the patch's inlet \, and the sound of the train's wheels passing
+the transitions between the rail segments.;
+#X text 12 122 WARNING: Abstraction generates sound as soon as DSP
+in on!;
+#X obj 182 181 rails~ \$1;
+#X text 9 102 Creation argument \$1: Train speed (km/h);
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 5 0 1 0;
+#X connect 9 0 0 0;

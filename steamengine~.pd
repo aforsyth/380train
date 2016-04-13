@@ -1,0 +1,7 @@
+#N canvas 1 50 434 320 10;
+#X text 3 12 [steamengine~] simulates the sound of a steam engine.
+;
+#X obj 15 290 outlet~ engine;
+#X text 5 64 WARNING: Abstraction generates sound as soon as DSP in
+on!;
+#X text 5 40 No dependencies or creation arguments;

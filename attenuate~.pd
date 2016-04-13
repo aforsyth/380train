@@ -1,0 +1,18 @@
+#N canvas 258 106 452 507 10;
+#X obj 19 478 outlet~;
+#X obj 19 236 inlet~ signal;
+#X obj 55 263 inlet distance;
+#X text 18 178 Creation argument:;
+#X text 19 156 Dependencies: None;
+#X text 169 264 Distance source-listener (m);
+#X text 14 9 [attenuate~] simulates the inverse distance law \, which
+states that the sound pressure from a spherical sound source in a free
+field decays linearly with the distance from the sound source. The
+same law is better known in a version that is known as the inverse
+square laqw \, which states that the /acoustic intensity/ decays with
+the /square/ of the distance. For our purposes \, however \, the first
+version of the law is more convenient \, because gain factors in Pd
+(i.e. \, numbers between 0 and 1 that we multiply signals with) correspond
+to sound pressure \, not acoustic intensity.;
+#X text 19 199 \$1: Reference distance (m) for which gain=1;
+#X connect 1 0 0 0;

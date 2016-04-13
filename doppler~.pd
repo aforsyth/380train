@@ -1,0 +1,38 @@
+#N canvas 108 70 693 662 10;
+#X obj 149 147 inlet~ signal;
+#X obj 100 577 outlet~ signal;
+#X obj 292 262 inlet distance;
+#X obj 208 239 delwrite~ \$0-doppler2 10000;
+#X obj 411 407 vd~ \$0-doppler2;
+#X obj 370 471 inlet trigger;
+#X obj 19 239 delwrite~ \$0-doppler1 10000;
+#X obj 292 407 vd~ \$0-doppler1;
+#X text 398 256 Distance d between sound source and listener (m),
+f 25;
+#X text 28 8 [doppler~] simulates the Doppler effect that occurs when
+the distance between a sound source and a listener changes dynamically
+\, either because the sound source is moving \, or the listener \,
+or both. The sound source is represented by the signal at the left
+inlet \, while the current distance between source and listener is
+expected at the right inlet. The pitch-shifted signal is produced at
+the outlet.;
+#X text 31 114 No dependencies or creation arguments;
+#X text 471 471 Drive-by trigger;
+#X text 415 322 Bonus points if you manage to toggle between two [delwrite~]/[vd~]
+pairs \, such that triggering another flyby will not result in a temporary
+pitch warp (http://puredata.hurleur.com/sujet-176-clearing-delay-lines)
+, f 42;
+#X obj 223 389 print;
+#X obj 294 340 sig~;
+#X obj 291 314 * 1000;
+#X obj 293 367 lop~ 5;
+#X obj 292 288 / 343;
+#X connect 0 0 3 0;
+#X connect 0 0 6 0;
+#X connect 2 0 17 0;
+#X connect 7 0 1 0;
+#X connect 14 0 16 0;
+#X connect 15 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 17 0 15 0;
