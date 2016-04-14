@@ -1,4 +1,4 @@
-#N canvas -1 23 479 714 10;
+#N canvas 2 23 479 714 10;
 #X obj 43 315 inlet bang;
 #X obj 86 678 outlet~ whistle;
 #X text 23 134 Creation argument \$1: Fundamental frequency f1 (defaults
@@ -13,5 +13,5 @@ a [bang( at its inlet.;
 #X text 22 178 No dependencies;
 #X obj 97 398 train_whistle_helper~;
 #X obj 24 412 osc~ 750;
-#X connect 0 0 7 0;
-#X connect 7 0 1 0;
+#X connect 0 0 6 0;
+#X connect 6 0 1 0;
