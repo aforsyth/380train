@@ -1,4 +1,4 @@
-#N canvas 1 50 450 361 10;
+#N canvas 971 247 450 361 10;
 #X obj 85 143 inlet distance;
 #X text 9 11 [absorb~] simulates the loss of high frequencies for increasing
 distances between a sound source and a listener. It uses a low-pass
@@ -8,4 +8,20 @@ from actual physics.;
 #X text 21 93 No dependencies or creation arguments;
 #X obj 18 332 outlet~ signal;
 #X obj 18 116 inlet~ signal;
-#X connect 4 0 3 0;
+#X obj 18 258 lop~;
+#X obj 85 165 / 10;
+#X obj 85 209 swap 20000;
+#X obj 85 231 -;
+#X text 204 144 dis;
+#X text 204 164 dis/10m;
+#X text 204 186 dis/10m*1000hz;
+#X obj 85 187 * 1000;
+#X text 204 218 20000-dis/10*1000;
+#X connect 0 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 12 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 5 1;
+#X connect 12 0 7 0;
