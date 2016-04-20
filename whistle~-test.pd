@@ -1,8 +1,8 @@
-#N canvas 303 234 450 300 10;
+#N canvas 55 364 450 300 10;
 #X text 74 46 hacky test patch for whistle;
 #X msg 95 88 bang;
 #X obj 111 227 dac~;
-#X obj 97 136 whistle~ 600;
+#X obj 97 136 whistle~ 750;
 #X connect 1 0 3 0;
 #X connect 3 0 2 0;
 #X connect 3 0 2 1;
