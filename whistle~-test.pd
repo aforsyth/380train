@@ -2,7 +2,7 @@
 #X text 74 46 hacky test patch for whistle;
 #X msg 95 88 bang;
 #X obj 111 227 dac~;
-#X obj 97 136 whistle~;
+#X obj 97 136 whistle~ 600;
 #X connect 1 0 3 0;
 #X connect 3 0 2 0;
 #X connect 3 0 2 1;
