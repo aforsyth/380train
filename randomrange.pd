@@ -1,0 +1,22 @@
+#N canvas 0 22 450 300 10;
+#X obj 56 135 random 99999;
+#X obj 56 44 inlet bang;
+#X text 162 17 generate a random number uniformly distributed in a
+range. the first creation argument specifies the lower end \, and the
+second creation argument specifies the upper end.;
+#X obj 56 157 / 99999;
+#X obj 56 185 *;
+#X obj 56 207 + \$1;
+#X obj 56 229 outlet;
+#X obj 56 66 t b b;
+#X obj 161 134 i \$2;
+#X obj 161 156 - \$1;
+#X connect 0 0 3 0;
+#X connect 1 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 7 0 0 0;
+#X connect 7 1 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 1;
